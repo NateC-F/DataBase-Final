@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SummaryController">
+   <children>
+      <Text layoutX="77.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROOM SUMMARIES">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="roomBox" layoutX="467.0" layoutY="46.0" onAction="#getRoomSummary" prefWidth="150.0" promptText="Select A Room" />
+      <VBox fx:id="totalSummary" layoutX="55.0" layoutY="97.0" prefHeight="598.0" prefWidth="571.0" spacing="10.0">
+         <children>
+            <HBox prefHeight="23.0" prefWidth="412.0" spacing="10.0">
+               <children>
+                  <Label fx:id="roomName" prefHeight="18.0" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="reserveButton" mnemonicParsing="false" onAction="#reserveRoom" text="Reserve This Room?" />
+               </children>
+            </HBox>
+            <HBox prefHeight="31.0" prefWidth="412.0" spacing="20.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room Occupant:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="roomOccupant" prefHeight="18.0" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Books In The Room:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="bookList" text="Label" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Food In The Room:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="foodList" text="Label" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="roomFee" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bookFee" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="foodFee" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="runningTotal" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <TableView fx:id="listOfBooks" layoutX="774.0" layoutY="83.0" prefHeight="400.0" prefWidth="412.0">
+        <columns>
+          <TableColumn fx:id="names" prefWidth="133.60003662109375" sortable="false" text="Book Name" />
+          <TableColumn fx:id="genres" prefWidth="185.5999755859375" sortable="false" text="Genres" />
+            <TableColumn fx:id="copies" minWidth="0.0" prefWidth="94.39996337890625" sortable="false" text="Copies Left" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="authorSort" layoutX="904.0" layoutY="46.0" onAction="#sortByAuthor" prefWidth="150.0" promptText="Sort By Author" visible="false" />
+      <ComboBox fx:id="genreSort" layoutX="904.0" layoutY="46.0" onAction="#sortByGenre" prefWidth="150.0" promptText="Sort By Genre" visible="false" />
+      <MenuButton layoutX="774.0" layoutY="46.0" mnemonicParsing="false" text="Sort By...">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#showAuthorSort" text="Sort By Author" />
+          <MenuItem mnemonicParsing="false" onAction="#showGenreSort" text="Sort By Genre" />
+           <MenuItem mnemonicParsing="false" onAction="#clearSorting" text="Clear Sorting" />
+        </items>
+      </MenuButton>
+      <TextArea fx:id="nameBox" layoutX="55.0" layoutY="201.0" prefHeight="0.0" prefWidth="200.0" promptText="Enter Occupant's Room" visible="false" />
+      <Text fx:id="nameText" layoutX="55.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Occupants Name:" visible="false" />
+      <Button fx:id="reserveIt" layoutX="269.0" layoutY="207.0" mnemonicParsing="false" text="Reserve Room" visible="false" />
+   </children>
+</AnchorPane>
