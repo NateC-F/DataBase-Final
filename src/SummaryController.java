@@ -265,6 +265,7 @@ public class SummaryController implements Initializable {
             Parent root = loader.load();
             ReserveRoomController controller = loader.getController();
             controller.setRoomNumber(roomBox.getValue());
+            controller.setSC(this);
             Stage newStage = new Stage();
             newStage.setTitle("Reserve Room");
             newStage.setScene(new Scene(root));
