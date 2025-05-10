@@ -23,7 +23,7 @@ public class SceneManager
             switch (id)
             {
                 case POS_SCREEN -> {
-                        scene = new Scene(loadFXML("pos.fxml"),resX,resY);
+                        scene = new Scene(loadFXML("pos.fxml"),750,240);
                         stage.setTitle("Point Of Sale");
                 }
                 case ROOM_SUMMARY -> {

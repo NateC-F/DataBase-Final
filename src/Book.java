@@ -1,8 +1,15 @@
 public class Book {
+    private int id;
     private String name;
     private String genres;
     private int copiesLeft;
 
+    public Book(int id, String name, int copiesLeft)
+    {
+        setId(id);
+        setName(name);
+        setCopiesLeft(copiesLeft);
+    }
     public Book(String name, String genres, int copiesLeft)
     {
         setName(name);
@@ -32,5 +39,18 @@ public class Book {
 
     public void setCopiesLeft(int copiesLeft) {
         this.copiesLeft = copiesLeft;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String toString()
+    {
+        return name;
     }
 }

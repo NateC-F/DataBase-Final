@@ -212,7 +212,7 @@ public class SummaryController implements Initializable {
             roomFee.setText("Room Fee: $" + rs.getInt(1));
             bookFee.setText("Book Fee: $" +rs.getInt(2));
             foodFee.setText("Food Fee: $" +rs.getDouble(3));
-            runningTotal.setText("Total: " + rs.getString(4));
+            runningTotal.setText("Total: $" + rs.getDouble(4));
         }
         catch (Exception e) {
             System.out.println("Not working");
@@ -235,8 +235,16 @@ public class SummaryController implements Initializable {
             if(rs.next()) {
                 roomName.setText("Room " + rs.getInt(1));
                 roomOccupant.setText(rs.getString(2));
-                bookList.setText(rs.getString(3));
-                foodList.setText(rs.getString(4));
+                if (rs.getString(3) == null || rs.getString(3).trim().isEmpty()) {
+                    bookList.setText("No Books Have Been Checked Out");
+                } else {
+                    bookList.setText(rs.getString(3));
+                }
+                if (rs.getString(4) == null || rs.getString(4).trim().isEmpty()) {
+                    foodList.setText("No Food Has Been Ordered");
+                } else {
+                    foodList.setText(rs.getString(4));
+                }
                 getRoomTotal();
             }
             else
@@ -274,5 +282,11 @@ public class SummaryController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void switchToPOS()
+    {
+        SceneManager.switchTo(SceneID.POS_SCREEN);
+    }
+
 
 }

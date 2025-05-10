@@ -121,5 +121,6 @@
       <TextArea fx:id="nameBox" layoutX="55.0" layoutY="201.0" prefHeight="0.0" prefWidth="200.0" promptText="Enter Occupant's Room" visible="false" />
       <Text fx:id="nameText" layoutX="55.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Occupants Name:" visible="false" />
       <Button fx:id="reserveIt" layoutX="269.0" layoutY="207.0" mnemonicParsing="false" text="Reserve Room" visible="false" />
+      <Button layoutX="1077.0" layoutY="46.0" mnemonicParsing="false" onAction="#switchToPOS" text="Move To Register" />
    </children>
 </AnchorPane>
