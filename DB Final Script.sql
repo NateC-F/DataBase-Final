@@ -164,7 +164,7 @@ BEGIN
     SET total_cost = food_total + book_fee + room_fee;
 
     SELECT  room_fee, book_fee, food_total,
-			CONCAT('$', total_cost) AS 'Room_total';
+			total_cost AS 'Room_total';
 
 END //
 DELIMITER ;
