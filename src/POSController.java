@@ -9,6 +9,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class POSController implements Initializable {
@@ -249,11 +250,11 @@ public class POSController implements Initializable {
                 statement.executeUpdate();
                 resetAfterOrder();
             }
-            catch (Exception e)
+            catch (SQLException e)
             {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("No Copies Left");
-                alert.setContentText("There Are No More Copies Of "+ selectBookBox.getValue().toString()+ " Left ");
+                alert.setTitle("Error Checking Out Book");
+                alert.setContentText(e.getMessage());
                 alert.setHeaderText("Please Inform The Customer: ");
                 alert.showAndWait();
             }
